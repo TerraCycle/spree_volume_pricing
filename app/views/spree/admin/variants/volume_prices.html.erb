@@ -8,7 +8,7 @@
   </span>
 <% end %>
 
-<%= form_for(@variant, url: admin_product_variant_path(@product, @variant), html: { method: :put }) do |f| %>
+<%= form_for(@variant, url: spree.admin_product_variant_path(@product, @variant), html: { method: :put }) do |f| %>
   <h3><%= Spree.t(:volume_prices) %></h3>
   <table class="table">
     <thead>

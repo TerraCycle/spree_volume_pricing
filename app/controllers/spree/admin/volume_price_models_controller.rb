@@ -13,9 +13,9 @@ module Spree
 
       def location_after_save
         if @volume_price_model.created_at == @volume_price_model.updated_at
-          edit_admin_volume_price_model_url(@volume_price_model)
+          spree.edit_admin_volume_price_model_url(@volume_price_model)
         else
-          admin_volume_price_models_url
+          spree.admin_volume_price_models_url
         end
       end
 
