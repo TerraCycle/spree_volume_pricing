@@ -24,7 +24,7 @@ module Spree::Admin::VariantsControllerDecorator
 
   def location_after_save
     if @product.master.id == @variant.id && params[:variant].key?(:volume_prices_attributes)
-      return volume_prices_admin_product_variant_url(@product, @variant)
+      return spree.volume_prices_admin_product_variant_url(@product, @variant)
     end
     super
   end
