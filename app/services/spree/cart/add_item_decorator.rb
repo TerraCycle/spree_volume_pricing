@@ -5,7 +5,6 @@ if Spree.version.to_f > 3.7
     def add_to_line_item(order:, variant:, quantity: nil, options: {})
       options ||= {}
       quantity ||= 1
-
       line_item = Spree::Dependencies.line_item_by_variant_finder.constantize.new.execute(order: order, variant: variant, options: options)
 
       line_item_created = line_item.nil?
@@ -17,6 +16,8 @@ if Spree.version.to_f > 3.7
         line_item = order.line_items.new(quantity: quantity,
                                           variant: variant,
                                           options: opts)
+
+        line_item.price = options[:price] if options[:price]
       else
         line_item.quantity += quantity.to_i
       end
